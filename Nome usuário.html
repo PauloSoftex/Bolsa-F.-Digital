@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+</html>
+<head>
+<meta charset="UTF-8">
+<meta name="vierpont" content="width=device-width, intitial-scale=1.0">
+<title>Qual o seu nome?</title>
+</head>
+<boby>
+<script>
+    var n1 = prompt("Palyer1");
+    n1 = parseFloat(n1);
+    var n2 = prompt("Palyer2");
+    n2 = parseFloat(n2);
+    var sorteio = Math.random()*2;
+    sorteio = parseInt(sorteio);
+    function verificarsimilares(sorteio, n1, n2){
+        if (n1==n2) 
+        return "Empate";
+    else if (sorteio==0 && n1>n2)
+    return ("sorteio =0 player 2 win");
+    else if (sorteio==0 && n2>n1)
+    return ("sorteio =0 player 1 win");
+    else if (sorteio==1 && n1<n2)
+    return ("sorteio =1 player 2 win");
+    else if (sorteio==1 && n2<n1)
+    return ("sorteio =1 player 1 win");
+    }
+var resultado = verificarsimilares(sorteio,n1,n2);
+alert(resultado);
+</script>
+</boby>
+</html>
