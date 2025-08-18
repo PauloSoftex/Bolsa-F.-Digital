@@ -4,11 +4,21 @@
 </head>
 
 <body>
-    <button></button>
-    <img src="./imagem/pic_bulboff.gif" id ="Desligada">
-    <img src="./imagem/pic_bulbon.gif" id ="Ligada"
-    <!--<input type="text" placeholder="digite aqui" id="textusuario">
-    <button onclick = "impinir()">Clicar</button>!-->
+<body>
+ <img id="lampada" src="./imagem/pic_bulboff.gif" alt="Imagem Desligada">
+  <br>
+  <button class="desligar" onclick="ligar()">Desligar</button>
+  <button class="ligar" onclick="desligar()">Ligar</button>
+
+  <script>
+    function ligar() {
+      document.getElementById("lampada").src = "./imagem/pic_bulboff.gif";
+    }
+
+    function desligar() {
+      document.getElementById("lampada"). src = "./imagem/pic_bulbon.git";
+    }
+  </script>
     <!--<form action="">
     <input type="text" id = "box" box = "box">
     <input type="submit" valeu ="enviar"></form>!-->
