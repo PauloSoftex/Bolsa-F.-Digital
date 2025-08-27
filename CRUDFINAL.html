@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<!-- Nota: Tive dificuldade para estruturar o salvamento dos dados e a alteração dos informações, 
+assiti algumas videos aula e pedie ajuda ao chatgpt na estruturação das "function", 
+o "style" foi baseado em um dos videos, ainda sim acho que o projeto não ficou bem finalizado.-->
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>CRUD - Cadastro Usuário</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+
+    input {
+      padding: 5px;
+      flex: 1;
+    }
+    button {
+      padding: 5px 10px;
+      cursor: pointer;
+      background-color:aquamarine;
+    }
+    .lista {
+      margin-top: 20px;
+      background-color:rgb(228, 255, 247);
+ 
+    }
+    .item {
+      border: 1px solid #000;
+      padding: 10px;
+      margin-bottom: 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .acoes button {
+      margin-left: 5px;
+    }
+  </style>
+</head>
+<body>
+  <h2>Cadastro Usuário</h2>
+
+    <input type="text" id="nome" placeholder="Nome Aluno">
+    <br><br>
+    <input type="text" id="cidade" placeholder="Cidade">
+    <br><br>
+    <input type="text" id="celular" placeholder="Número de celular">
+    <br><br>
+    <button onclick="adicionar()">Adicionar</button>
+
+  <!-- Lista dos dados -->
+  <div id="lista" class="lista"></div>
+
+  <script>
+    let dados = JSON.parse(localStorage.getItem("contatos")) || [];
+    let editIndex = -1;
+
+    function atualizarLista() {
+      const lista = document.getElementById("lista");
+      lista.innerHTML = "";
+
+      dados.forEach((item, index) => {
+        const div = document.createElement("div");
+        div.className = "item";
+        div.innerHTML = `
+          <span><strong>Nome:</strong> ${item.nome} | 
+          <strong>Cidade:</strong> ${item.cidade} | 
+          <strong>Celular:</strong> ${item.celular}</span>
+          <span class="acoes">
+            <button onclick="editar(${index})">Editar</button>
+            <button onclick="deletar(${index})">Deletar</button>
+          </span>
+        `;
+        lista.appendChild(div);
+      });
+
+      localStorage.setItem("contatos", JSON.stringify(dados));
+    }
+
+    function adicionar() {
+      const nome = document.getElementById("nome").value;
+      const cidade = document.getElementById("cidade").value;
+      const celular = document.getElementById("celular").value;
+
+      if (!nome || !cidade || !celular) {
+        alert("Preencha todos os campos!");
+        return;
+      }
+
+      if (editIndex === -1) {
+        dados.push({ nome, cidade, celular });
+      } else {
+        dados[editIndex] = { nome, cidade, celular };
+        editIndex = -1;
+      }
+
+      document.getElementById("nome").value = "";
+      document.getElementById("cidade").value = "";
+      document.getElementById("celular").value = "";
+
+      atualizarLista();
+    }
+
+    function editar(index) {
+      const contato = dados[index];
+      document.getElementById("nome").value = contato.nome;
+      document.getElementById("cidade").value = contato.cidade;
+      document.getElementById("celular").value = contato.celular;
+      editIndex = index;
+    }
+
+    function deletar(index) {
+      if (confirm("Deseja realmente excluir este contato?")) {
+        dados.splice(index, 1);
+        atualizarLista();
+      }
+    }
+
+    atualizarLista();
+  </script>
+</body>
+</html>
