@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<!-- <input type = "text1" id = "texto1" placeholder="Digite aqui" >
+<br><br>
+<input type = "text" id = "texto2" placeholder="Digite aqui" >
+<br><br>
+<button id = "analisartudo1" onclick="analisartudo()">Analisar tudo</button>
+
+<p id = "resultado"></p> -->
+<input type = "text" id = "nome" placeholder="Digite Nome" >
+<br><br>
+<input type = "text" id = "idade" placeholder="Digite Idade" >
+<br><br>
+<button onclick="velho()">Adicionar pessoa</button>
+<button onclick = "envelhecer()">Envelhecer</button>
+<p id = "pessoas"></p>
+
+    <script>
+        let nome = " ";
+        let idade = 0;
+        function velho(){
+nome = document.getElementById("nome").value;
+idade = parseInt(document.getElementById("idade").value);
+
+
+console.log("nome");
+console.log("idade");
+    document.getElementById("pessoas").innerHTML = "Olá, " + "Sou " + nome + ", tenho " + idade + " anos.";
+
+        }
+function envelhecer() {
+    idade += 1;
+    document.getElementById("pessoas").innerHTML = "Olá, " + "Sou " + nome + ", tenho " + idade + " anos.";
+    console.log("Envelhecer: Idade atualizada para", idade);
+}
+// tem que usar <lu> e <li> para criar a lista
+
+
+// let palavra1 = " ";
+// let palavra2 = " ";
+
+// let tamanho1 = " ";
+// let tamanho2 = " ";
+
+// let maiuscula = " ";
+// let minuscula = " ";
+
+// function analisartudo(){
+    // palavra1 = document.getElementById("texto1").value;
+    // palavra2 = document.getElementById("texto2").value;
+
+    // tamanho1 = palavra1.length;
+    // tamanho2 = palavra2.length;
+
+    // console.log("texto1", palavra1, " - Tamanho:", tamanho1);
+    // console.log("texto2", palavra2, " - Tamanho:", tamanho2);
+    // document.getElementById("resultado").innerHTML = 
+    //     "A palavra é:" + " (tamanho: " + tamanho1 + ")<br>" +
+    //     "A palavra é:" + " (tamanho: " + tamanho2 + ")";
+    // XXXXXXXXxxxxxxxxxxxxxxxxxxAxxxxxxxxxxxxxxxxxx
+    // palavra1 = document.getElementById("texto1").value;
+    // palavra2 = document.getElementById("texto2").value;
+
+    // maiuscula = palavra1.toUpperCase();
+    // minuscula = palavra2.toLowerCase();
+
+    // console.log("texto1", palavra1, " - Tamanho:", maiuscula);
+    // console.log("texto2", palavra2, " - Tamanho:", minuscula);
+    // document.getElementById("resultado").innerHTML = 
+    //     "Maiuscula:" + " (tamanho: " + maiuscula + ")<br>" +
+    //     "Minuscula:" + " (tamanho: " + minuscula + ")";}
+
+    // XXXXXXXXXXXXXXXXXX
+    
+    
+
+
+
+        // let text = "Paulo";
+        // let length = text.length;
+        // console.log(length);
+
+
+        // let texto1= "Paulo";
+        // let texto2= "Correia";
+        // let texto3= text1.concat(" ", texto2);
+        // console.log(texto3);
+
+// const nome = "Paulo";
+// let letra = nome.at(0);
+// console.log(letra);
+
+// let texto = "Banana, Kiwi, Maça";
+// let parte = texto.slice(7);
+// console.log(parte);
+
+// let parte1 = texto.slice(-7);
+// console.log(parte1);
+
+// let parte2 = texto.slice(-13,6);
+// console.log(parte2);
+
+// let textoA = texto.toUpperCase(texto);
+// console.log(textoA);
+// let textoB = texto.toLowerCase(texto);
+// console.log(textoB);
+
+// let textoo = "Visite esse mundo novo XRL8";
+// let novotexto = textoo.replace("XRL8" , "Ben 10");
+// console.log(novotexto);
+
+// let Nomecompleto = "Paulo Correia Paulo Lucas";
+// // const nomefinal = text.split(" ");
+// // console.log(nomefinal[-1]);
+
+// let index = Nomecompleto.indexOf("Lucas");
+// console.log(index);
+
+// var Aulo = Nomecompleto.includes("Lucas");
+// console.log(Aulo);
+
+    </script>
+
+</body>
+</html>
